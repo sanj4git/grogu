@@ -18,3 +18,4 @@ img2pdf
 pypdf
 pandas
 tqdm
+matplotlib
