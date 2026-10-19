@@ -10,6 +10,7 @@ from PIL import Image
 import cv2
 import numpy as np
 import fitz
+torch.set_num_threads(1)
 
 # Add src/model and dataset folder to path
 sys.path.insert(0, os.path.dirname(__file__))
@@ -79,6 +80,7 @@ class GROGUPredictor:
         original_img = self.render_pdf(pdf_path)
         visual_tensor = self.transform(original_img).unsqueeze(0).to(self.device)
         visual_tensor.requires_grad = True
+        original_img.thumbnail((700, 990))
 
         # 2. Extract Metadata
         meta_vec = extract_metadata_vector(pdf_path, temporal_delta=0)
