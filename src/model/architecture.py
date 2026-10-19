@@ -7,8 +7,7 @@ class GROGUArchitecture(nn.Module):
         super(GROGUArchitecture, self).__init__()
         
         # 1. Visual Branch (MobileNetV2)
-        weights = MobileNet_V2_Weights.DEFAULT
-        self.visual_model = mobilenet_v2(weights=weights)
+        self.visual_model = mobilenet_v2(weights=None)
         
         self.visual_feature_dim = self.visual_model.last_channel  # 1280
         self.visual_model.classifier = nn.Identity()
