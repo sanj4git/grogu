@@ -3,7 +3,6 @@ import sys
 import torch
 import torch.nn.functional as F
 import numpy as np
-import matplotlib.pyplot as plt
 import io
 import base64
 
@@ -139,6 +138,9 @@ class MetadataExplainer:
         }
 
     def render_attribution_bar_chart(self, explanation, output_path=None):
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
         """Generates a clean bar chart of metadata feature attributions."""
         features = explanation["all_features"][:7] # top 7
         names = [f["label"] for f in reversed(features)]
