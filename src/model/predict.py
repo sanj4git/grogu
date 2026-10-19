@@ -14,8 +14,7 @@ torch.set_num_threads(1)
 
 # Add src/model and dataset folder to path
 sys.path.insert(0, os.path.dirname(__file__))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'dataset')))
-from dataset_generator import extract_metadata_vector
+from metadata_utils import extract_metadata_vector
 
 from architecture import GROGUArchitecture
 from xai_metadata import MetadataExplainer
